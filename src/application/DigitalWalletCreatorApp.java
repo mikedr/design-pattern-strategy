@@ -18,19 +18,29 @@ public class DigitalWalletCreatorApp {
         OrangeCard orangeCard = new OrangeCard();
         Sintindir sintindir = new Sintindir();
 
-        //Setting of the correspondent payment behavior:
-        marketPay.setPayBehavior(new QR());
-        orangeCard.setPayBehavior(new Bitcoins());
-        sintindir.setPayBehavior(new CreditCard());
-
-        //Setting of the correspondent investment behavior:
-        marketPay.setInvestBehavior(new InvestmentFund());
-        orangeCard.setInvestBehavior(new CryptocurrencyBuy());
-        sintindir.setInvestBehavior(new ForeignCurrencyBuy());
-
         //Using each ewallet:
         marketPay.display();
         marketPay.pay();
         marketPay.invest();
+
+        orangeCard.display();
+        orangeCard.pay();
+        orangeCard.invest();
+
+        sintindir.display();
+        sintindir.pay();
+        sintindir.invest();
+
+        //changing
+        System.out.println("\n***Changing behaviors on runtime***\n");
+        marketPay.setPayBehavior(new CreditCard());
+        marketPay.display();
+        marketPay.pay();
+        orangeCard.setPayBehavior(new DebitCard());
+        orangeCard.display();
+        orangeCard.pay();
+        sintindir.setPayBehavior(new DebitCard());
+        sintindir.display();
+        sintindir.pay();
     }
 }
